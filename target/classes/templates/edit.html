@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>Proyecto SpringBoot - Editar Curso</title>
+	<meta charset="utf-8" content="Ejemplo de Desarrollo Backend con SpringBoot">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/myStyle.css}">
+</head>
+
+<body>
+	<div class="textClass">
+		<h3>Editar Curso</h3>
+	</div>
+	<form th:action="@{/saveCurso}" method="post" th:object=${curso}>
+		<div id="conForm">
+			<div class="mb-3">
+				<label for="labGrado" class="form-label">Grado:</label>
+				<input type="text" class="form-control" name="Grado" id="Grado" th:value="*{Grado}" aria-describedby="GradoHelp" required>
+				<div id="GradoHelp" class="form-text">Digite el Grado del Curso</div>
+			</div>
+			<div class="mb-3">
+				<label for="labGrupo" class="form-label">Grupo:</label>
+				<input type="text" class="form-control" name="Grupo" id="Grupo" th:value="*{Grupo}" aria-describedby="GrupoHelp" required>
+				<div id="GrupoHelp" class="form-text">Digite el Grupo del Curso</div>
+			</div>
+			<button type="submit" class="btn btn-outline-secondary">Modificar</button>
+			<input type="hidden" name="codCurso" id="codCurso" th:value="*{codCurso}">
+	</form>
+	</div>
+</body>
+
+</html>

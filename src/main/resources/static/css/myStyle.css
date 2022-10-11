@@ -1,0 +1,15 @@
+#myTable{
+	width:35%;
+	margin: 5px auto;
+	padding: 5px auto;
+}
+
+.textClass{
+	text-align: center;
+}
+
+#conButton, #conForm{
+	width: 30%;
+	margin: 15px auto;
+	padding: 5px auto;
+}

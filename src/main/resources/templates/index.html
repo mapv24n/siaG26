@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>Proyecto SpringBoot</title>
+	<meta charset="utf-8" content="Ejemplo de Desarrollo Backend con SpringBoot">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/myStyle.css}">
+</head>
+
+<body>
+	<div id="conButton">
+		<a th:href="@{/nuevoCurso/}"><button type="button" class="btn btn-outline-secondary">Agregar Curso</button></a>
+	</div>
+	<table id="myTable" class="table table-striped">
+		<tr>
+			<td class="textClass"></td>
+			<td class="textClass">
+				<h4>Código</h4>
+			</td>
+			<td class="textClass">
+				<h4>Grado</h3>
+			</td>
+			<td class="textClass">
+				<h4>Grupo</h4>
+			</td>
+		</tr>
+		<tr th:each="curso:${cursos}">
+			<td class="textClass">
+				<a th:href="@{/mostrarCurso/}+${curso.codCurso}"><img th:src="@{/img/MOSTRA.png}" width="25px"></a>
+				<a th:href="@{/editarCurso/}+${curso.codCurso}"><img th:src="@{/img/EDITAR.png}" width="25px"></a>
+				<a th:href="@{/eliminarCurso/}+${curso.codCurso}"><img th:src="@{/img/BORRA.png}" width="25px"></a>
+			</td>
+			<td class="textClass">
+				<h6 th:text=${curso.codCurso}></h6>
+			</td>
+			<td class="textClass">
+				<font th:text=${curso.Grado}></font>
+			</td>
+			<td class="textClass">
+				<font th:text=${curso.Grupo}></font>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
