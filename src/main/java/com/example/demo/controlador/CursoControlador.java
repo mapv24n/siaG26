@@ -54,4 +54,17 @@ public class CursoControlador {
 		return "/edit";
 	}
 	
+	@GetMapping("/eliminarCurso/{id}")
+	public String eliminar(@PathVariable int id) {
+		cursoService.deleteById(id);
+		return "redirect:/siaG26";
+	}
+	
+	@GetMapping("/mostrarCurso/{id}")
+	public String mostrar(@PathVariable int id, Model model) {
+		Optional<Curso> curso = cursoService.findById(id);
+		model.addAttribute("curso", curso.get());
+		return "/mostrar";
+	}
+	
 }
